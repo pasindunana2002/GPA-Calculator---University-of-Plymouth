@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Plymouth - Degree Class Identification Tool</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --navy-blue: #001f3f;
+            --plymouth-blue: #00205B;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, var(--plymouth-blue), var(--navy-blue));
+            padding: 2.5rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            text-align: center;
+            color: white;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .sub-title {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.5px;
+        }
+
+        .university-logo {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--plymouth-blue);
+        }
+
+        .divider {
+            width: 50px;
+            height: 3px;
+            background-color: white;
+            margin: 1rem auto;
+            opacity: 0.8;
+        }
+        
+        .navbar {
+            background-color: var(--navy-blue);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background-color: var(--navy-blue);
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+        }
+        
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+            padding: 0.75rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 31, 63, 0.25);
+            border-color: var(--navy-blue);
+        }
+        
+        .btn-primary {
+            background-color: var(--navy-blue);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #003366;
+            transform: translateY(-2px);
+        }
+        
+        .result-card {
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .subject-group {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .animate-fade {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 1.8rem;
+            }
+            .sub-title {
+                font-size: 1rem;
+            }
+            .university-logo {
+                width: 60px;
+                height: 60px;
+            }
+            .logo-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PasinduNanayakkara  --><!-- PasinduNanayakkara  --><!-- PasinduNanayakkara  --><!-- PasinduNanayakkara  --><!-- PasinduNanayakkara  --><!-- PasinduNanayakkara  --><!-- PasinduNanayakkara  --><!-- PasinduNanayakkara  --><!-- PasinduNanayakkara  -->
+    <div class="header-section">
+        <div class="container">
+            <div class="header-content">
+                <div class="university-logo">
+                    <i class="fas fa-university logo-icon"></i>
+                </div>
+                <h1 class="main-title">University of Plymouth - BSc Computer Science</h1>
+                <div class="divider"></div>
+                <h2 class="sub-title">Degree Class Identification Tool</h2>
+                <div class="divider"></div>
+                <p class="sub-title">Developed by Pasindu Nanayakkara</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Second Year (40% Weight)
+                    </div>
+                    <div class="card-body">
+                        <div id="secondYearSubjects">
+                            <div class="subject-group">
+                                <div class="mb-3">
+                                    <label class="form-label">Information Management & Retrieval</label>
+                                    <input type="number" class="form-control second-year" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Internet of Things</label>
+                                    <input type="number" class="form-control second-year" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Software Development Tools and Practises</label>
+                                    <input type="number" class="form-control second-year" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Computing Group Project</label>
+                                    <input type="number" class="form-control second-year" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Computational Theory & Statistics</label>
+                                    <input type="number" class="form-control second-year" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mobile Application Development</label>
+                                    <input type="number" class="form-control second-year" min="0" max="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Third Year (60% Weight)
+                    </div>
+                    <div class="card-body">
+                        <div id="thirdYearSubjects">
+                            <div class="subject-group">
+                                <div class="mb-3">
+                                    <label class="form-label">Artificial Intellingence & Machine Learning</label>
+                                    <input type="number" class="form-control third-year" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Human Computer Interaction & Visualization - Graphics</label>
+                                    <input type="number" class="form-control third-year" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Full Stack development</label>
+                                    <input type="number" class="form-control third-year" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Big Data Analytics</label>
+                                    <input type="number" class="form-control third-year" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Final Year Project</label>
+                                    <input type="number" class="form-control third-year" min="0" max="100">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Final Year Project - Enter Above Mark Again</label>
+                                    <input type="number" class="form-control third-year" min="0" max="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4 mb-4">
+            <button class="btn btn-primary btn-lg" onclick="calculateGPA()">Calculate GPA</button>
+        </div>
+
+        <div class="result-card" id="resultCard">
+            <h3 class="text-center mb-4">Final Results</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <h5>Second Year Average</h5>
+                        <p class="h3" id="secondYearAvg">-</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <h5>Third Year Average</h5>
+                        <p class="h3" id="thirdYearAvg">-</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <h5>Final Score</h5>
+                        <p class="h3" id="finalScore">-</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <h4>Classification</h4>
+                <p class="h2" id="classification">-</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateGPA() {
+            const secondYearMarks = Array.from(document.getElementsByClassName('second-year'))
+                .map(input => parseFloat(input.value) || 0);
+            
+            const thirdYearMarks = Array.from(document.getElementsByClassName('third-year'))
+                .map(input => parseFloat(input.value) || 0);
+
+            const secondYearAvg = secondYearMarks.reduce((a, b) => a + b, 0) / 6;
+            const thirdYearAvg = thirdYearMarks.reduce((a, b) => a + b, 0) / 6;
+
+            const finalScore = (secondYearAvg * 0.4) + (thirdYearAvg * 0.6);
+
+            let classification = '';
+            if (finalScore >= 70) {
+                classification = 'First Class Honours';
+            } else if (finalScore >= 60) {
+                classification = 'Second Class Honours (Upper)';
+            } else if (finalScore >= 50) {
+                classification = 'Second Class Honours (Lower)';
+            } else if (finalScore >= 40) {
+                classification = 'Third Class Honours';
+            } else {
+                classification = 'Fail';
+            }
+
+            document.getElementById('secondYearAvg').textContent = secondYearAvg.toFixed(2);
+            document.getElementById('thirdYearAvg').textContent = thirdYearAvg.toFixed(2);
+            document.getElementById('finalScore').textContent = finalScore.toFixed(2);
+            document.getElementById('classification').textContent = classification;
+
+            const resultCard = document.getElementById('resultCard');
+            resultCard.style.display = 'block';
+            resultCard.classList.add('animate-fade');
+        }
+    </script>
+</body>
+</html>
